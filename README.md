@@ -52,9 +52,10 @@ All training scripts accept the following flags:
 - **Other hyperparameters**: dropout, learning rate, batch size, sequence length, etc.
 
 Run `-h` to view all options:
-
 ```bash
 python scripts/train.py -h
+
+
 
 
 ---
