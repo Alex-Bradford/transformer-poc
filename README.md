@@ -54,6 +54,7 @@ All training scripts accept the following flags:
 Run `-h` to view all options:
 ```bash
 python scripts/train.py -h
+``````
 
 
 
