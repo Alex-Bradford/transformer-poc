@@ -11,9 +11,9 @@ A lightweight proof-of-concept Transformer implementation in PyTorch, featuring:
 - **Mixture-of-Experts feed-forward**  
   MoE layers in each block (shared + routed experts), inspired by DeepSeek-V2.
 - **Flexible attention**  
-  Switch between standard multi-head, grouped-query, multi-query, or latent attention.
+  Switch between standard multi-head or grouped-query attention.
 - **Next-token & multi-token loss**  
-  Autoregressive training with 1-step or multi-step teacher-forced objectives.
+  Autoregressive training with 1-step or multi-step objectives.
 - **Multi-node / multi-GPU training**  
   Built-in support for PyTorch DDP across servers and GPUs.
 
@@ -47,8 +47,8 @@ All training scripts accept the following flags:
 
 - **Model dimensions**: `--emb_dim`, `--num_heads`, `--num_layers`
 - **MoE experts**: `--shared_expert_count`, `--routed_expert_count`, `--moe_top_k`
-- **Attention type**: `--attn_type` (`multihead` \| `grouped` \| `multiquery` \| `latent`)
-- **Loss objective**: `--loss_type` (`next` \| `multitoken`)
+- **Attention type**: `--attn_type` (`multihead` \| `grouped`)
+- **Loss objective**: `--loss_type` (`next` \| `multi`)
 - **Other hyperparameters**: dropout, learning rate, batch size, sequence length, etc.
 
 Run `-h` to view all options:
@@ -96,8 +96,8 @@ transformer-poc/
 ├── data/                    # WikiText-2 splits & other corpora
 ├── scripts/
 │   ├── download_wikitext2.py
-│   ├── train.py             # single-GPU entry point
-│   └── train_distributed.py # multi-node DDP launcher
+│   ├── train.py               # single-GPU entry point
+│   └── train_distributed.py   # multi-node DDP launcher
 ├── src/
 │   ├── tokenizer.py
 │   ├── data_pipeline.py
